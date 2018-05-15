@@ -1,16 +1,18 @@
 import React from 'react'
-import { WebView } from 'react-native'
+import { WebView, Text, View } from 'react-native'
 
 const ArticleScreen = (props) => {
-  // const url = props.navigation.state.params.url
   // const { navigation: { state: { params: { url } } } } = props
   const { url } = props.navigation.state.params
   return (
+    <View>
+    <Text>{url}</Text>
     <WebView
-      source={{ url }}
+      source={{ uri: url }}
       // startInLoadingState={true}
       startInLoadingState
     />
+    </View>
   )
 }
 

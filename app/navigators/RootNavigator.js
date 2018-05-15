@@ -1,5 +1,4 @@
 import { createStackNavigator } from 'react-navigation'
-
 import ArticleScreen from '../containers/ArticleScreen'
 import HomeScreen from '../containers/HomeScreen'
 
