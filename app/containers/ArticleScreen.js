@@ -2,8 +2,10 @@ import React from 'react'
 import { WebView, Text, View } from 'react-native'
 
 const ArticleScreen = (props) => {
-  // const { navigation: { state: { params: { url } } } } = props
+
   const { url } = props.navigation.state.params
+  // OR:  const { navigation: { state: { params: { url } } } } = props
+  
   return (
     <View>
     <Text>{url}</Text>
