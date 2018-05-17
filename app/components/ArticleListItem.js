@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { TouchableOpacity, StyleSheet, Text, View } from 'react-native'
 import { articleListItemProps } from '../constants/prop-types'
 import colors from '../constants/colors'
+import timeStampToDate from '../util/formatting'
 
 class ArticleListItem extends React.Component {
 
@@ -17,13 +18,15 @@ class ArticleListItem extends React.Component {
 
   render() {
     const { time, by, title, onHandlePress } = this.props
+    const formattedDate = timeStampToDate(time)
+    
     return (
       <TouchableOpacity
         onPress={this.onHandlePress}
         style={styles.item}
       >
         <View style={styles.metaHeader}>
-          <Text style={styles.metaText}>{time}</Text>
+          <Text style={styles.metaText}>{formattedDate}</Text>
           <Text style={styles.metaText}>{by}</Text>
         </View>
         <Text style={styles.title}>{title}</Text>
