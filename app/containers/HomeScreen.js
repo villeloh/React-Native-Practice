@@ -40,9 +40,7 @@ class HomeScreen extends React.Component {
 
   render() {
 
-    // console.log(this.props)
     const { articles, isLoading } = this.props
-    // console.log(articles) // null
 
     return (
       <ArticleList
@@ -67,7 +65,8 @@ const mapStateToProps = (store) => {
 const mapDispatchToProps = (dispatch) => {
 
   return {
-
+    
+    // gives it as a prop to this component... I guess ?
     getHackerNewsArticlesAction: bindActionCreators(getHackerNewsArticlesAction, dispatch)
   }
 

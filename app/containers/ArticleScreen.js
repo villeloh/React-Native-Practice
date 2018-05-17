@@ -1,21 +1,19 @@
 import React from 'react'
-import { WebView, Text, View } from 'react-native'
+import ArticleDetailView from '../components/ArticleDetailView'
 import dims from '../constants/dimensions'
 
 const ArticleScreen = (props) => {
 
   const { url } = props.navigation.state.params
   // OR:  const { navigation: { state: { params: { url } } } } = props
+
+  const handlePress = () => {
+
+    console.log('you pressed the button!')
+  }
   
   return (
-    <WebView
-      source={{ uri: url }}
-      onError={(event) => console.log(event)}
-      startInLoadingState={true}
-      initialScale={100}
-      width = {dims.screenWidth}
-      // startInLoadingState
-    />
+    <ArticleDetailView handlePress={handlePress} url={url}/>
   )
 } // end ArticleScreen
 
