@@ -9,7 +9,7 @@ export const articleListItemProps = {
   onHandlePress: PropTypes.func.isRequired
 }
 
-// these should be of the type 'const huu = PropTypes.shape({ property: hii })',
+// these should be of the type 'const huu = PropTypes.shape({ property: hii ... })',
 // but that doesn't work for some reason (likely bad syntax), so I opted for regular objects instead
 export const articleListProps = {
 

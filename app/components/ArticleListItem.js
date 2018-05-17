@@ -7,13 +7,12 @@ import colors from '../constants/colors'
 class ArticleListItem extends React.Component {
 
   onHandlePress = () => {
-    const { url, onHandlePress } = this.props
+    let { url, onHandlePress } = this.props
 
-    // note1: it seems there can be invalid urls for some reason
-    // note2: it seems the original url is read-only (why tho??), so I made a new variable
-    const url2 = url === undefined ? '' : url
+    // it seems there can be invalid urls for some reason
+    url = url === undefined ? '' : url
 
-    onHandlePress('Article', { url2 })
+    onHandlePress('Article', { url })
   }
 
   render() {
@@ -22,7 +21,7 @@ class ArticleListItem extends React.Component {
       <TouchableOpacity
         onPress={this.onHandlePress}
         style={styles.item}
-        >
+      >
         <View style={styles.metaHeader}>
           <Text style={styles.metaText}>{time}</Text>
           <Text style={styles.metaText}>{by}</Text>
@@ -31,9 +30,10 @@ class ArticleListItem extends React.Component {
       </TouchableOpacity>
     )
   }
-}
+} // end ArticleListItem
 
 const styles = StyleSheet.create({
+
   item: {
     borderColor: colors.borderColor,
     // borderWidth: StyleSheet.hairlineWidth,
@@ -43,12 +43,14 @@ const styles = StyleSheet.create({
     padding: 15,
     backgroundColor: colors.green
   },
+
   metaHeader: {
     flexDirection: 'row', // 'column'
     // 'flex-start', 'flex-end', 'center', 'space-around':
     justifyContent: 'space-between',
     marginBottom: 10
   },
+
   metaText: {
     fontSize: 12
   },

@@ -1,5 +1,6 @@
 import React from 'react'
 import { WebView, Text, View } from 'react-native'
+import dims from '../constants/dimensions'
 
 const ArticleScreen = (props) => {
 
@@ -7,15 +8,15 @@ const ArticleScreen = (props) => {
   // OR:  const { navigation: { state: { params: { url } } } } = props
   
   return (
-    <View>
-    <Text>{url}</Text>
     <WebView
       source={{ uri: url }}
-      // startInLoadingState={true}
-      startInLoadingState
+      onError={(event) => console.log(event)}
+      startInLoadingState={true}
+      initialScale={100}
+      width = {dims.screenWidth}
+      // startInLoadingState
     />
-    </View>
   )
-}
+} // end ArticleScreen
 
 export default ArticleScreen

@@ -31,13 +31,12 @@ const ArticleList = (props) => {
       keyExtractor={(article) => `${article.id}`}
     />
   )
-}
+} // end ArticleList
 
 const styles = StyleSheet.create({
 
   contentContainer: {
 
-    // flex: 1,
     width: dims.screenWidth,
     justifyContent: 'center',
     backgroundColor: colors.white,
