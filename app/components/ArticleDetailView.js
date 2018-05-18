@@ -8,14 +8,17 @@ const ArticleDetailView = (props) => {
   const handlePress = props.handlePress 
   const width = dims.screenWidth
   const height = dims.screenHeight
+
+  const { isFavorite } = props
+  // conditional rendering of the favorite/remove button
+  const button = isFavorite ? 
+    <Button title={'Remove from favorites'} onPress={handlePress}/> : 
+    <Button title={'Save to favorites'} onPress={handlePress} />
   
   return (
     <View style={styles.container} width={width} height={height}>
       <View style={styles.button}>
-        <Button 
-          title={'Save to Favorites'}
-          onPress={handlePress}
-        />
+        {button}
       </View>
       <WebView
         style={styles.webView}
@@ -39,6 +42,7 @@ const styles = StyleSheet.create({
     // not needed for now I guess...
   },
 
+  // made it a style of the wrapping View because button size can't be modified by itself -.-
   button: {
     width: buttonWidth,
     alignSelf: 'center',

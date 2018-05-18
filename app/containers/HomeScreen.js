@@ -1,4 +1,5 @@
 import React from 'react'
+import { View, Button } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import ArticleList from '../components/ArticleList'
@@ -38,17 +39,26 @@ class HomeScreen extends React.Component {
     getHackerNewsArticlesAction()
   } // end getArticles()
 
+  viewFavorites = () => {
+
+    const { favorites } = this.props
+    this.handleNavigation('Favorites', { favorites })
+  }
+
   render() {
 
     const { articles, isLoading } = this.props
 
     return (
-      <ArticleList
-        articles={articles}
-        handleNavigation={this.handleNavigation}
-        refreshing={isLoading}
-        onRefresh={this.getArticles}
-      />
+      <View>
+        <Button title={'Favorites'} onPress={this.viewFavorites}/>
+        <ArticleList
+          articles={articles}
+          handleNavigation={this.handleNavigation}
+          refreshing={isLoading}
+          onRefresh={this.getArticles}
+        />
+      </View>
     )
   } // end render()
 } // end class
@@ -58,7 +68,8 @@ const mapStateToProps = (store) => {
   return {
 
     isLoading: store.hackerNewsState.isLoading, // passed as a prop to HomeScreen
-    articles: store.hackerNewsState.articles
+    articles: store.hackerNewsState.articles,
+    favorites: store.favoritesState.favorites
   }
 }
 

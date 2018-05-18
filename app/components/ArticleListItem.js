@@ -3,15 +3,15 @@ import PropTypes from 'prop-types'
 import { TouchableOpacity, StyleSheet, Text, View } from 'react-native'
 import { articleListItemProps } from '../constants/prop-types'
 import colors from '../constants/colors'
-import timeStampToDate from '../util/formatting'
+import { timeStampToDate } from '../util/formatting'
 
 class ArticleListItem extends React.Component {
 
   onHandlePress = () => {
-    let { url, onHandlePress } = this.props
+    let { url = '', onHandlePress } = this.props
 
     // it seems there can be invalid urls for some reason
-    url = url === undefined ? '' : url
+    // url = url === undefined ? '' : url
 
     onHandlePress('Article', { url })
   }
